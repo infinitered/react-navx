@@ -1,4 +1,4 @@
-import AsyncStorage from "@react-native-community/async-storage"
+import * as AsyncStorage from "@react-native-community/async-storage"
 
 // Quieting AsyncStorage warnings!
 // Per https://github.com/storybookjs/storybook/issues/6078#issuecomment-510167432
@@ -12,7 +12,7 @@ Object.defineProperty(ReactNative, "AsyncStorage", {
 /**
  * Export AsyncStorage so it's usable elsewhere.
  */
-export const Storage = AsyncStorage
+export const Storage = AsyncStorage as any
 
 /**
  * Loads a string from storage.

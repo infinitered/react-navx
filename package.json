@@ -2,11 +2,13 @@
   "name": "react-navx",
   "version": "0.0.1",
   "description": "Navigation and state management in one place for your React Native projects, featuring React Navigation and MobX",
-  "main": "index.js",
+  "main": "build/index.js",
+  "types": "build/types/index.d.ts",
   "repository": "https://github.com/infinitered/react-navx",
   "author": "Jamon Holmgren",
   "license": "MIT",
   "scripts": {
+    "test": "jest",
     "lint": "eslint ./src/**.ts ./src/**.tsx",
     "format": "prettier --write \"{**/*.ts,**/*.js}\" --loglevel error && yarn lint --fix",
     "clean-build": "rm -rf ./build",
@@ -20,10 +22,14 @@
     "mobx": "4.13.0",
     "mobx-react": "^6.1.3",
     "mobx-state-tree": "^3.14.1",
+    "react-native-gesture-handler": "^1.3.0",
     "react-navigation": "^3.11.1"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/plugin-proposal-optional-catch-binding": "^7.2.0",
     "@semantic-release/git": "^7.0.16",
+    "@types/jest": "^24.0.17",
     "@types/react-navigation": "^3.0.8",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
@@ -36,8 +42,11 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-native": "^3.7.0",
     "eslint-plugin-standard": "^4.0.0",
+    "jest": "^24.8.0",
     "prettier": "^1.18.2",
+    "react-test-renderer": "^16.9.0",
     "semantic-release": "^15.13.21",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.5.3"
   },
   "eslintConfig": {
@@ -86,6 +95,20 @@
       "jest": false,
       "it": false
     }
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": "ts-jest",
+      "^.+\\.tsx$": "ts-jest"
+    },
+    "testRegex": "(\\.|/)(test)\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "node"
+    ]
   },
   "prettier": {
     "printWidth": 100,

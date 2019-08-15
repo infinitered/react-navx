@@ -18,7 +18,6 @@ interface BackButtonHandlerProps {
 
 const BackButtonHandlerComponent = (props: BackButtonHandlerProps) => {
   const navigationStore = useNavigationStore()
-  console.tron.logImportant(navigationStore)
 
   useEffect(() => {
     /**
