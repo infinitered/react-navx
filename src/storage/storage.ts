@@ -12,7 +12,7 @@ Object.defineProperty(ReactNative, "AsyncStorage", {
 /**
  * Export AsyncStorage so it's usable elsewhere.
  */
-export const Storage = AsyncStorage as any
+export const Storage = AsyncStorage as any // TODO: good types pls
 
 /**
  * Loads a string from storage.
