@@ -5,7 +5,7 @@ import { createNavXNavigator } from "./navigation/navx-navigator"
 import { createNavigationStoreModel } from "./stores/navigation-store"
 import { RootStoreModel } from "./stores/root-store"
 import { BackButtonHandler } from "./components/back-button-handler"
-import * as storage from "./storage"
+import * as storage from "./storage/storage"
 import { createStackNavigator } from "react-navigation"
 
 const NAVIGATION_STATE_STORAGE_KEY = "NavX-NAVIGATION_STATE_STORAGE_KEY"

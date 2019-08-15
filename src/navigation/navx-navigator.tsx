@@ -4,7 +4,7 @@ import { observer } from "mobx-react"
 // prettier-ignore
 import { createStackNavigator, getNavigation, NavigationScreenProp, NavigationState } from "react-navigation"
 import { useNavigationStore } from "../stores/use-stores"
-import { load, save } from "../storage"
+import { load, save } from "../storage/storage"
 
 interface NavXNavigatorProps {
   children?: any
