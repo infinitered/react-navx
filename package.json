@@ -1,6 +1,6 @@
 {
   "name": "react-navx",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Navigation and state management in one place for your React Native projects, featuring React Navigation and MobX",
   "main": "build/index.js",
   "types": "build/types/index.d.ts",
