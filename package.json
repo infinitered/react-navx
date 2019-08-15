@@ -1,0 +1,10 @@
+{
+  "name": "react-navx",
+  "version": "0.0.1",
+  "description": "React Navigation + MobX, Buttery Smooth",
+  "main": "index.js",
+  "repository": "https://github.com/infinitered/react-navx",
+  "author": "Jamon Holmgren",
+  "license": "MIT",
+  "private": false
+}
