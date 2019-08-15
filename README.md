@@ -47,8 +47,11 @@ export const Status = observer(StatusComponent)
 
 ## Features
 
+Note that React-NavX supports React Native 0.60 and above only.
+
 * [x] [React Navigation 3.x](https://reactnavigation.org/) for navigation and routing
 * [x] [MobX-React, MobX, MobX-State-Tree](https://mobx-react.js.org/) for state management
+* [x] [AsyncStorage](https://github.com/react-native-community/async-storage) for automatic state persistance
 * [x] [Reactotron](https://infinite.red/reactotron) bindings for easy debugging
 * [x] TypeScript support
 
@@ -157,7 +160,45 @@ If you want more than just the `appStore`, just add them to the `stores` and `st
 />
 ```
 
-Currently, both `stores` and `storeModels` are required to be provided. In the future, I'd like to infer the `storeModels` to make it easier.
+These can then be accessed by any screens or components by using the `useStore` hook:
+
+```tsx
+import { useStore } from "react-navx"
+
+function MyComponent(props) {
+  const loginStore = useStore("loginStore")
+
+  // use loginStore
+}
+```
+
+_Note: Currently, both `stores` and `storeModels` are required to be provided. In the future, I'd like to infer the `storeModels` to make it easier._
+
+### Accessing the RootStore and NavigationStore
+
+The RootStore is exposed via the `useRootStore` hook:
+
+```tsx
+import { useRootStore } from "react-navx"
+
+function MyComponent(props) {
+  const rootStore = useRootStore()
+
+  return <View>{rootStore.appStore.status}</View>
+}
+```
+
+The `navigationStore` is a property on the RootStore:
+
+```tsx
+import { useRootStore } from "react-navx"
+
+function MyScreen(props) {
+  const { navigationStore } = useRootStore()
+
+  // do whatever you want with `navigationStore`
+}
+```
 
 ## Help and Support
 
