@@ -53,46 +53,45 @@ export const NavX = (props: NavXProps) => {
     },
   )
 
-  useEffect(
-    () => {
-      const NavigationStoreModel = createNavigationStoreModel(RootNavigator)
+  useEffect(() => {
+    const NavigationStoreModel = createNavigationStoreModel(RootNavigator)
 
-      const RootStoreModelX = RootStoreModel.props({
-        navigationStore: NavigationStoreModel,
-      }).props(extraStoreModels)
+    const RootStoreModelX = RootStoreModel.props({
+      navigationStore: NavigationStoreModel,
+    }).props(extraStoreModels)
 
-      if (!props.rootStore) {
-        // prepare the environment that will be associated with the NavigationStore.
-        // default store -- empty state
+    if (!props.rootStore) {
+      // prepare the environment that will be associated with the NavigationStore.
 
-        // load data from storage (if no rootStore provided via props)
-        storage.load(storageKey).then(data => {
-          try {
-            if (!data) {
-              data = {
-                navigationStore: NavigationStoreModel.create({}, env),
-              }
-            }
-            setRootStore(RootStoreModelX.create(data, env))
-          } catch (e) {
-            // fallback to default state
-            setRootStore(
-              RootStoreModelX.create(
-                {
-                  navigationStore: NavigationStoreModel.create({}, env),
-                },
-                {},
-              ),
-            )
-
-            // but please inform us what happened, if we have Reactotron enabled
-            __DEV__ && props.reactotron && props.reactotron.error(e.message, null)
+      // load data from storage (if no rootStore provided via props)
+      storage.load(storageKey).then(data => {
+        const navigationStore = data.navigationStore || NavigationStoreModel.create({}, env)
+        try {
+          const newData = {
+            navigationStore,
+            ...extraStores,
+            ...data,
           }
-        })
-      }
-    },
-    [props.rootStore, props.navStore],
-  )
+
+          setRootStore(RootStoreModelX.create(newData, env))
+        } catch (e) {
+          // fallback to default state
+          setRootStore(
+            RootStoreModelX.create(
+              {
+                navigationStore: NavigationStoreModel.create({}, env),
+                ...extraStores,
+              },
+              {},
+            ),
+          )
+
+          // but please inform us what happened, if we have Reactotron enabled
+          __DEV__ && props.reactotron && props.reactotron.error(e.message, null)
+        }
+      })
+    }
+  }, [props.rootStore, props.navStore])
 
   // if it's not set yet, just return nothing for now
   if (!rootStore) return null
