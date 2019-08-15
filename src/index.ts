@@ -1,4 +1,4 @@
-import * as storageX from "./storage"
+import * as storageX from "./storage/storage"
 export const storage = storageX
 export * from "mobx-react"
 export * from "mobx-state-tree"
