@@ -1,11 +1,11 @@
-import * as AsyncStorage from "@react-native-community/async-storage"
+import * as AsyncStorage from "react-native"
 
 // Quieting AsyncStorage warnings!
 // Per https://github.com/storybookjs/storybook/issues/6078#issuecomment-510167432
 const ReactNative = require("react-native")
 Object.defineProperty(ReactNative, "AsyncStorage", {
   get(): any {
-    return require("@react-native-community/async-storage").default
+    return require("react-native").default
   },
 })
 
