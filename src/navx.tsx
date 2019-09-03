@@ -65,6 +65,7 @@ export const NavX = (props: NavXProps) => {
 
       // load data from storage (if no rootStore provided via props)
       storage.load(storageKey).then(data => {
+        data = data || {}
         const navigationStore = data.navigationStore || NavigationStoreModel.create({}, env)
         try {
           const newData = {
