@@ -2,7 +2,13 @@
 
 Navigation and state management in one place for your React Native projects.
 
-_Featuring React context & hooks, React Navigation, and MobX-React._
+_Featuring React context & hooks, React Navigation, and MobX/MobX-State-Tree/MobX-React._
+
+## Disclaimer
+
+This library is experimental and probably broken at the moment. We intend to explore API ideas and try it out on various hobby projects before releasing it publicly.
+
+If you want to be involved in the discussion, please contact us in the [Infinite Red Community Slack](http://community.infinite.red) #react-navx channel.
 
 ## Quick Peek
 
